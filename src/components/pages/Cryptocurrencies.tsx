@@ -22,6 +22,8 @@ const Cryptocurrencies: FC<currencieProps> = ({ simplified }) => {
     setCryptos(filterData);
   }, [cryptosList, searchTerm]);
 
+  if (isFetching) return <p>... Loading</p>;
+
   return (
     <Fragment>
       {!simplified && (
