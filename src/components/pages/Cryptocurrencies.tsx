@@ -3,6 +3,7 @@ import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Input, Image } from "antd";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
+import { Loader } from "../../components";
 
 interface currencieProps {
   simplified: boolean;
@@ -22,7 +23,7 @@ const Cryptocurrencies: FC<currencieProps> = ({ simplified }) => {
     setCryptos(filterData);
   }, [cryptosList, searchTerm]);
 
-  if (isFetching) return <p>... Loading</p>;
+  if (isFetching) return <Loader />;
 
   return (
     <Fragment>

@@ -4,6 +4,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import { useGetCryptoNewsQuery } from "../../services/cryptoNewsApi";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
+import { Loader } from "..";
 
 const { Text, Title } = Typography;
 const { Option } = Select;
@@ -21,7 +22,7 @@ const News: FC<newsProp> = ({ simplified }) => {
     count: count,
   });
 
-  if (!CryptoNews?.value) return <p>Loading News</p>;
+  if (!CryptoNews?.value) return <Loader />;
 
   return (
     <Row gutter={[24, 24]}>

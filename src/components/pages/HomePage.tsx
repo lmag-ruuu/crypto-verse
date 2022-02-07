@@ -1,7 +1,7 @@
 import { FC } from "react";
 import millify from "millify";
 import { Typography, Row, Col, Statistic } from "antd";
-import { Cryptocurrencies, News } from "../../components";
+import { Cryptocurrencies, News, Loader } from "../../components";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 
@@ -12,7 +12,7 @@ const HomePage: FC = () => {
 
   const globalStats = data?.data.stats;
 
-  if (isFetching) return <p>... Loading</p>;
+  if (isFetching) return <Loader />;
 
   return (
     <main>

@@ -19,7 +19,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../../services/cryptoApi";
-import { Stats, LineChart } from "../../components";
+import { Stats, LineChart, Loader } from "../../components";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -34,7 +34,7 @@ const CryptoDetails: FC = () => {
     timePeriod,
   });
 
-  if (isFetching) return <p>Loading...</p>;
+  if (isFetching) return <Loader />;
 
   const cryptoDetails = cryptoDetail?.data?.coin;
 
