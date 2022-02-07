@@ -19,7 +19,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../../services/cryptoApi";
-import Stats from "../Stats";
+import { Stats, LineChart } from "../../components";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -29,7 +29,7 @@ const CryptoDetails: FC = () => {
 
   const [timePeriod, setTimePeriod] = useState("7d");
   const { data: cryptoDetail, isFetching } = useGetCryptoDetailsQuery(coinId);
-  const { data: cryptoHistory } = useGetCryptoHistoryQuery({
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
     coinId,
     timePeriod,
   });
@@ -112,10 +112,10 @@ const CryptoDetails: FC = () => {
         <Title level={2} className="coin-name">
           {cryptoDetails?.name} ({cryptoDetails?.symbol}) Price
         </Title>
-        <p>
+        <Text>
           {cryptoDetails?.name} Live price in US dollars. View value statistics,
           market cap and supply
-        </p>
+        </Text>
       </Col>
       <Select
         defaultValue={"7d"}
@@ -123,11 +123,15 @@ const CryptoDetails: FC = () => {
         placeholder="Select Time Period"
         onChange={(value) => setTimePeriod(value)}
       >
-        {time.map((date, index) => (
-          <Option key={index}>{date}</Option>
+        {time.map((date) => (
+          <Option key={date}>{date}</Option>
         ))}
       </Select>
-      {/* La wea penca, aqui xd */}
+      <LineChart
+        coinHistory={coinHistory}
+        currentPrice={millify(cryptoDetails?.price)}
+        coinName={cryptoDetails?.name}
+      />
       <Col className="stats-container">
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">
