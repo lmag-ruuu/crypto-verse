@@ -64,7 +64,7 @@ const HomePage: FC = () => {
           <Link to={"/cryptocurrencies"}>Show More</Link>
         </Title>
       </div>
-      <Cryptocurrencies />
+      <Cryptocurrencies simplified />
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Latest Crypto News
