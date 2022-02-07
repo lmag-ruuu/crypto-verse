@@ -16,7 +16,20 @@ const App: FC = () => {
             <Outlet />
           </div>
         </Layout>
-        <div className="footer">{/* <Footer /> */}</div>
+        <div className="footer">
+          <Typography.Title
+            level={5}
+            style={{ color: "#ddd", textAlign: "center" }}
+          >
+            &copy; CryptoVerse 2022 <br />
+            All Left Reserved
+          </Typography.Title>
+          <Space>
+            <Link to={"/"}>Home</Link>
+            <Link to={"/exchanges"}>Exchanges</Link>
+            <Link to={"/news"}>News</Link>
+          </Space>
+        </div>
       </div>
     </div>
   );
