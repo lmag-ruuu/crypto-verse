@@ -73,7 +73,7 @@ const HomePage: FC = () => {
           <Link to={"/news"}>Show More</Link>
         </Title>
       </div>
-      <News />
+      <News simplified />
     </main>
   );
 };

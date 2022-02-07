@@ -26,7 +26,7 @@ render(
             element={<Cryptocurrencies simplified={false} />}
           />
           <Route path="crypto/:coinId" element={<CryptoDetails />} />
-          <Route path="news" element={<News />} />
+          <Route path="news" element={<News simplified={false} />} />
           <Route
             path="*"
             element={
